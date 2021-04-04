@@ -6,27 +6,42 @@
       <template v-slot:img>
         <img src="/bag.jpg" alt="bag" />
       </template>
-      <template v-slot:new>50%</template>
-      <template v-slot:sale>Storewide Sale</template>
-      <template v-slot:collection>Summer</template>
-      <template v-slot:details>All accessories</template>
+      <template v-slot:new
+        >50%</template
+      >
+      <template v-slot:sale
+        >Storewide Sale</template
+      >
+      <template v-slot:collection
+        >Summer</template
+      >
+      <template v-slot:details
+        >All accessories</template
+      >
     </app-textlockup>
     <app-featured-products />
   </div>
 </template>
 
 <script>
-import AppTextlockup from "~/components/AppTextlockup.vue";
-import AppSalesBoxes from "~/components/AppSalesBoxes.vue";
-import AppFeaturedProducts from "~/components/AppFeaturedProducts.vue";
+import AppTextlockup from '~/components/AppTextlockup.vue'
+import AppSalesBoxes from '~/components/AppSalesBoxes.vue'
+import AppFeaturedProducts from '~/components/AppFeaturedProducts.vue'
 
 export default {
   components: {
     AppTextlockup,
     AppSalesBoxes,
-    AppFeaturedProducts
-  }
-};
+    AppFeaturedProducts,
+  },
+  head() {
+    return {
+      script: [
+        { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' },
+      ],
+    }
+  },
+}
 </script>
 
 <style>
