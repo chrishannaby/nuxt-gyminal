@@ -6,7 +6,6 @@ let dynamicRoutes = () => {
 }
 
 export default {
-  mode: 'universal',
   target: 'static',
   /*
    ** Headers of the page
@@ -33,9 +32,6 @@ export default {
       }
     ]
   },
-  generate: {
-    routes: dynamicRoutes
-  },
   /*
    ** Customize the progress-bar color
    */
@@ -51,7 +47,12 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    '@nuxt/content'
+  ],
+  content: {
+    // Options
+  },
   /*
    ** Build configuration
    */
