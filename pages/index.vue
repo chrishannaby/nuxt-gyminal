@@ -1,6 +1,5 @@
 <template>
   <div>
-    <app-blog-post-list />
     <app-textlockup />
     <app-sales-boxes />
     <app-textlockup>

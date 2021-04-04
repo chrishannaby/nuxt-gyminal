@@ -1,10 +1,3 @@
-import data from './static/storedata.json'
-let dynamicRoutes = () => {
-  return new Promise(resolve => {
-    resolve(data.map(el => `product/${el.id}`))
-  })
-}
-
 export default {
   target: 'static',
   /*
@@ -40,6 +33,9 @@ export default {
    ** Global CSS
    */
   css: ['normalize.css', { src: '~/assets/main.scss', lang: 'sass' }],
+  tailwindcss: {
+    jit: true
+  },
   /*
    ** Plugins to load before mounting the App
    */
@@ -56,10 +52,8 @@ export default {
   /*
    ** Build configuration
    */
+  buildModules: ['@nuxtjs/tailwindcss'],
   build: {
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) { }
+    transpile: ['vue-instantsearch', 'instantsearch.js/es'],
   }
 }
