@@ -46,9 +46,9 @@ export const mutations = {
       ? (itemfound.quantity += payload.quantity)
       : state.cart.push(payload)
   },
-   setClientSecret: (state, payload) => {
+  setClientSecret: (state, payload) => {
     state.clientSecret = payload;
-   },
+  },
   addOneToCart: (state, payload) => {
     let itemfound = state.cart.find(el => el.id === payload.id)
     itemfound ? itemfound.quantity++ : state.cart.push(payload)
@@ -69,7 +69,7 @@ export const actions = {
     try {
       // Create a PaymentIntent with the information about the order
       const result = await axios.post(
-        "https://ecommerce-netlify.netlify.app/.netlify/functions/create-payment-intent",
+        "/.netlify/functions/create-payment-intent",
         {
           items: getters.cartItems
         },

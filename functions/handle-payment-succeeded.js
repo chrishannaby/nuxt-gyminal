@@ -3,12 +3,19 @@
 // For more information read https://stripe.com/docs/webhooks
 require("dotenv").config();
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const {
+  STRIPE_SECRET_KEY,
+  STRIPE_WEBHOOK_SECRET,
+  TWILIO_ACCOUNT_SID,
+  TWILIO_AUTH_TOKEN,
+  TWILIO_NUMBER
+} = process.env
+
+const stripe = require("stripe")(STRIPE_SECRET_KEY);
+const twilio = require('twilio')(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 
 // Create your webhook in the Stripe dashboard at https://dashboard.stripe.com/webhooks
 // Use the secret listed in the "Signing secret" section
-const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
-
 exports.handler = async (event, context) => {
   const sig = event.headers["stripe-signature"];
   let stripeEvent;
@@ -18,7 +25,7 @@ exports.handler = async (event, context) => {
     stripeEvent = stripe.webhooks.constructEvent(
       event.body,
       sig,
-      endpointSecret
+      STRIPE_WEBHOOK_SECRET
     );
   } catch (err) {
     return { statusCode: 400 };
@@ -33,6 +40,20 @@ exports.handler = async (event, context) => {
         "Payment was successful! Charge information:",
         paymentIntent.charges.data.filter(charge => charge.status === "succeeded")
       );
+      const customerPhone = paymentIntent.metadata.phone
+      if (customerPhone) {
+        try {
+          const response = await twilio.messages.create({
+            from: TWILIO_NUMBER,
+            to: customerPhone,
+            body: "order created!"
+          });
+          console.log("SMS sent", response)
+        }
+        catch (error) {
+          console.error('error sending SMS:', error)
+        }
+      }
       break;
     case "charge.dispute.created":
       const charge = stripeEvent.data.object;
