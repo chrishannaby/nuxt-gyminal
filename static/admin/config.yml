@@ -6,16 +6,51 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
+  - name: 'categories'
+    label: 'Categories'
+    label_singular: 'Category'
+    folder: 'content/categories'
     format: 'frontmatter'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    editor:
-      preview: false
+    slug: '{{slug}}'
+    identifier_field: name
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Name', name: 'name', widget: 'string' }
+  - name: 'subcategories'
+    label: 'Subcategories'
+    label_singular: 'Subcategory'
+    folder: 'content/subcategories'
+    format: 'frontmatter'
+    create: true
+    slug: '{{slug}}'
+    identifier_field: name
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - {
+          label: 'Category',
+          name: 'category',
+          widget: 'relation',
+          collection: 'categories',
+          search_fields: ['name'],
+          value_field: '{{slug}}',
+          display_fields: ['name'],
+        }
+  - name: 'products'
+    label: 'Products'
+    label_singular: 'Product'
+    folder: 'content/products'
+    format: 'frontmatter'
+    create: true
+    slug: '{{slug}}'
+    identifier_field: name
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - {
+          label: 'Subcategory',
+          name: 'subcategory',
+          widget: 'relation',
+          collection: 'subcategories',
+          search_fields: ['name'],
+          value_field: '{{slug}}',
+          display_fields: ['{{category}} {{name}}'],
+        }
