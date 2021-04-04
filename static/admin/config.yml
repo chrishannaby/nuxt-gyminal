@@ -16,6 +16,12 @@ collections:
     identifier_field: name
     fields:
       - { label: 'Name', name: 'name', widget: 'string' }
+      - {
+          label: 'Image',
+          name: 'image',
+          widget: 'image',
+          allow_multiple: false,
+        }
   - name: 'subcategories'
     label: 'Subcategories'
     label_singular: 'Subcategory'

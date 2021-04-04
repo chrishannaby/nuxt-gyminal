@@ -25,17 +25,11 @@ export default {
       }
     ]
   },
+  components: true,
   /*
    ** Customize the progress-bar color
    */
   loading: { color: '#fff' },
-  /*
-   ** Global CSS
-   */
-  css: ['normalize.css', { src: '~/assets/main.scss', lang: 'sass' }],
-  tailwindcss: {
-    jit: true
-  },
   /*
    ** Plugins to load before mounting the App
    */
@@ -52,7 +46,18 @@ export default {
   /*
    ** Build configuration
    */
-  buildModules: ['@nuxtjs/tailwindcss'],
+  buildModules: [
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-fonts'
+  ],
+  googleFonts: {
+    families: {
+      Inter: true
+    }
+  },
+  tailwindcss: {
+    jit: true
+  },
   build: {
     transpile: ['vue-instantsearch', 'instantsearch.js/es'],
   }
