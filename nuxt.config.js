@@ -62,6 +62,7 @@ export default {
         const extraFilePath = path.join(
           builder.nuxt.options.rootDir,
           'functions',
+          'create-payment-intent',
           'data.json'
         )
         const { $content } = require('@nuxt/content')

@@ -21,9 +21,8 @@ exports.handler = async (event, context) => {
   }
 
   const body = JSON.parse(event.body);
-  console.log(data);
 
-  if (!data.items) {
+  if (!body.items) {
     console.error("List of items to purchase is missing.");
 
     return {
