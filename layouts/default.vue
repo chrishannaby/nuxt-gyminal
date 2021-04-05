@@ -161,7 +161,7 @@ export default {
       navLinks: [
         { name: 'Cardio', path: '/cardio' },
         { name: 'Strength', path: '/strength' },
-        { name: 'Accesories', path: '/accessories' },
+        { name: 'Accessories', path: '/accessories' },
       ],
     }
   },
