@@ -1,9 +1,10 @@
 // An endpoint that calculates the order total and creates a 
 // PaymentIntent on Stripe 
 require("dotenv").config();
-const fs = require("fs").promises;
-const path = require("path");
-const axios = require("axios");
+const fs = require("fs");
+const json = fs.readFileSync(require.resolve('./data.json'))
+const database = JSON.parse(json)
+
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY),
   headers = {
     "Access-Control-Allow-Origin": "*",
@@ -19,7 +20,7 @@ exports.handler = async (event, context) => {
     };
   }
 
-  const data = JSON.parse(event.body);
+  const body = JSON.parse(event.body);
   console.log(data);
 
   if (!data.items) {
@@ -40,14 +41,10 @@ exports.handler = async (event, context) => {
     // from manipulating the order amount from the client
     // Here we will use a simple json file to represent inventory
     // but you could replace this with a DB lookup
-    const json = await fs.readFile(path.join(__dirname, "data.json"), {
-      encoding: "utf-8"
-    });
-    const storedata = JSON.parse(json)
-    console.log(storedata)
-    const amount = data.items.reduce((prev, item) => {
+
+    const amount = body.items.reduce((prev, item) => {
       //lookup item information from "database" and calculate total amount
-      const itemData = storedata.find(
+      const itemData = database.find(
         storeItem => storeItem.id === item.id
       );
       return prev + item.price * 100 * item.quantity;
