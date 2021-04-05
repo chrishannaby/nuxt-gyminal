@@ -15,21 +15,42 @@
         ></star-rating>
         <h4 class="price">{{ product.price | dollar }}</h4>
         <p>{{ product.description }}</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto velit dolores repudiandae animi quidem, eveniet quod dolor facilis dicta eligendi ullam error. Assumenda in fugiat natus enim similique nam itaque.</p>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto velit
+          dolores repudiandae animi quidem, eveniet quod dolor facilis dicta
+          eligendi ullam error. Assumenda in fugiat natus enim similique nam
+          itaque.
+        </p>
         <div class="product-options">
           <div class="quantity">
-            <button class="update-num" @click="quantity > 0 ? quantity-- : quantity = 0">-</button>
+            <button
+              class="update-num"
+              @click="quantity > 0 ? quantity-- : (quantity = 0)"
+            >
+              -
+            </button>
             <input type="number" v-model="quantity" />
             <button class="update-num" @click="quantity++">+</button>
           </div>
           <div v-if="product.sizes" class="size">
-            <select v-model="size" class="size-picker" @change="showSizeRequiredMessage = false">
+            <select
+              v-model="size"
+              class="size-picker"
+              @change="showSizeRequiredMessage = false"
+            >
               <option :value="null" disabled hidden>Size</option>
-              <option v-for="(size, key) in product.sizes" :key="key" :value="size">{{ size }}</option>
+              <option
+                v-for="(size, key) in product.sizes"
+                :key="key"
+                :value="size"
+                >{{ size }}</option
+              >
             </select>
           </div>
         </div>
-        <p v-if="showSizeRequiredMessage" class="size-required-message">Please choose a size</p>
+        <p v-if="showSizeRequiredMessage" class="size-required-message">
+          Please choose a size
+        </p>
         <p>
           Available in additional colors:
           <strong>
@@ -53,21 +74,23 @@
         style="margin: 5px 0"
       ></star-rating>
       <p>{{ product.review }}</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum iusto placeat consequatur voluptas sit mollitia ratione autem, atque sequi odio laborum, recusandae quia distinctio voluptatibus sint, quae aliquid possimus exercitationem.</p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum iusto
+        placeat consequatur voluptas sit mollitia ratione autem, atque sequi
+        odio laborum, recusandae quia distinctio voluptatibus sint, quae aliquid
+        possimus exercitationem.
+      </p>
     </div>
-    <app-featured-products />
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
-import StarRating from "vue-star-rating/src/star-rating.vue";
-import AppFeaturedProducts from "~/components/AppFeaturedProducts.vue";
+import { mapState } from 'vuex'
+import StarRating from 'vue-star-rating/src/star-rating.vue'
 
 export default {
   components: {
     StarRating,
-    AppFeaturedProducts
   },
   data() {
     return {
@@ -75,33 +98,33 @@ export default {
       quantity: 1,
       size: null,
       showSizeRequiredMessage: false,
-      tempcart: [] // this object should be the same as the json store object, with additional params, quantity and size
-    };
+      tempcart: [], // this object should be the same as the json store object, with additional params, quantity and size
+    }
   },
   computed: {
-    ...mapState(["storedata"]),
+    ...mapState(['storedata']),
     product() {
-      return this.storedata.find(el => el.id === this.id);
-    }
+      return this.storedata.find((el) => el.id === this.id)
+    },
   },
   methods: {
     cartAdd() {
       if (this.product.sizes && !this.size) {
-        this.showSizeRequiredMessage = true;
-        return;
+        this.showSizeRequiredMessage = true
+        return
       }
 
-      let item = this.product;
-      item = { 
-        ...item, 
-        quantity: this.quantity, 
-        size: this.size 
-      };
-      this.tempcart.push(item);
-      this.$store.commit("addToCart", {...item});
-    }
-  }
-};
+      let item = this.product
+      item = {
+        ...item,
+        quantity: this.quantity,
+        size: this.size,
+      }
+      this.tempcart.push(item)
+      this.$store.commit('addToCart', { ...item })
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>

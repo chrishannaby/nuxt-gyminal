@@ -1,5 +1,7 @@
 <template>
-  <div>{{ product.name }}</div>
+  <main class="py-8 max-w-7xl mx-auto px-4 lg:px-8 w-full">
+    {{ product.name }}
+  </main>
 </template>
 
 <script>

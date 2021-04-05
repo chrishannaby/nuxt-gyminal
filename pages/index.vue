@@ -1,38 +1,39 @@
 <template>
   <div>
-    <app-textlockup />
-    <app-sales-boxes />
-    <app-textlockup>
-      <template v-slot:img>
-        <img src="/bag.jpg" alt="bag" />
-      </template>
-      <template v-slot:new
-        >50%</template
+    <div class="w-screen h-96 grid grid-rows-1 grid-cols-1 place-items-center">
+      <video
+        class="row-start-1 col-start-1 w-full h-96 object-cover"
+        src="/hype.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+      ></video>
+      <div
+        class="z-10 row-start-1 col-start-1 w-full flex flex-col items-center space-y-8"
       >
-      <template v-slot:sale
-        >Storewide Sale</template
-      >
-      <template v-slot:collection
-        >Summer</template
-      >
-      <template v-slot:details
-        >All accessories</template
-      >
-    </app-textlockup>
-    <app-featured-products />
+        <h1 class="text-4xl font-black text-white">Life Fitness on Demand</h1>
+        <button
+          class="bg-white uppercase tracking-wide text-xs text-black font-black py-4 px-16"
+        >
+          Learn More
+        </button>
+      </div>
+    </div>
+    <main class="py-8 max-w-7xl mx-auto px-4 lg:px-8 w-full">
+      <app-top-sellers />
+      <app-top-categories :categories="categories" />
+    </main>
   </div>
 </template>
 
 <script>
-import AppTextlockup from '~/components/AppTextlockup.vue'
-import AppSalesBoxes from '~/components/AppSalesBoxes.vue'
-import AppFeaturedProducts from '~/components/AppFeaturedProducts.vue'
-
 export default {
-  components: {
-    AppTextlockup,
-    AppSalesBoxes,
-    AppFeaturedProducts,
+  async asyncData({ $content, params, error }) {
+    const categories = await $content('categories', params.category).fetch()
+    return {
+      categories,
+    }
   },
   head() {
     return {
@@ -43,13 +44,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.test {
-  margin: 3vh;
-}
-
-main {
-  width: 75vw;
-}
-</style>

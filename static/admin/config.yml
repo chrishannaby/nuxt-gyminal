@@ -22,6 +22,7 @@ collections:
           widget: 'image',
           allow_multiple: false,
         }
+      - { label: 'Icon', name: 'icon', widget: 'image', allow_multiple: false }
   - name: 'subcategories'
     label: 'Subcategories'
     label_singular: 'Subcategory'

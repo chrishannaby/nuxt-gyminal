@@ -4,7 +4,7 @@
   >
     <nuxt-img
       :src="image"
-      class="row-start-1 col-start-1 w-full object-cover"
+      class="row-start-1 col-start-1 w-full h-80 object-cover"
     />
     <div
       class="w-full h-full bg-black bg-opacity-50 row-start-1 col-start-1 text-6xl font-black text-white grid place-items-center"
