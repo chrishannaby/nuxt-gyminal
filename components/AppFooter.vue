@@ -111,7 +111,7 @@
           </ul>
         </div>
         <div class="space-y-8 xl:col-span-1">
-          <img class="h-10" src="/logo.png" alt="Life Fitness" />
+          <nuxt-img class="h-10" src="/logo.png" alt="Life Fitness" />
           <div class="flex space-x-6">
             <a href="#" class="text-gray-400 hover:text-gray-500">
               <span class="sr-only">Facebook</span>

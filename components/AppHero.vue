@@ -1,6 +1,6 @@
 <template>
   <head class="grid grid-cols-1 grid-rows-1 place-items-center">
-    <img
+    <nuxt-img
       :src="image"
       class="row-start-1 col-start-1 h-80 w-full object-cover"
     />

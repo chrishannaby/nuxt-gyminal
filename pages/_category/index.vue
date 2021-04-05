@@ -15,7 +15,7 @@
         class="flex flex-col group"
       >
         <div class="flex-shrink-0 h-60 grid grid-cols-1 grid-rows-1">
-          <img
+          <nuxt-img
             class="row-start-1 col-start-1 h-full object-cover"
             :src="subcategory.image"
           />

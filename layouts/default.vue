@@ -5,12 +5,12 @@
         <div class="flex space-y-0 justify-between h-16">
           <div class="flex">
             <nuxt-link to="/" class="flex-shrink-0 flex items-center">
-              <img
+              <nuxt-img
                 class="hidden xs:block h-8 w-auto"
                 src="/logo.png"
                 alt="Life Fitness"
               />
-              <img
+              <nuxt-img
                 class="block xs:hidden h-10 w-auto"
                 src="/logo_small.png"
                 alt="Life Fitness"
