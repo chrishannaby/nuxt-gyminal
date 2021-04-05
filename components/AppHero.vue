@@ -1,5 +1,5 @@
 <template>
-  <head
+  <div
     class="grid grid-cols-1 grid-rows-1 h-80 overflow-hidden place-items-center"
   >
     <nuxt-img
@@ -11,7 +11,7 @@
     >
       <h1>{{ title }}</h1>
     </div>
-  </head>
+  </div>
 </template>
 
 <script>
