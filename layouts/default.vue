@@ -6,12 +6,12 @@
           <div class="flex">
             <nuxt-link to="/" class="flex-shrink-0 flex items-center">
               <nuxt-img
-                class="hidden xs:block h-8 w-auto"
+                class="hidden xs:block w-36 h-auto"
                 src="/logo.png"
                 alt="Life Fitness"
               />
               <nuxt-img
-                class="block xs:hidden h-10 w-auto"
+                class="block xs:hidden w-10 h-auto"
                 src="/logo_small.png"
                 alt="Life Fitness"
               />
