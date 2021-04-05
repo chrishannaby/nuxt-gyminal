@@ -1,19 +1,117 @@
 <template>
   <!-- This example requires Tailwind CSS v2.0+ -->
-  <footer class="bg-white" aria-labelledby="footerHeading">
+  <footer
+    class="bg-white border-t-4 border-lf-red"
+    aria-labelledby="footerHeading"
+  >
     <h2 id="footerHeading" class="sr-only">Footer</h2>
-    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-      <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+    <div class="max-w-7xl mx-auto py-12 px-8 sm:px-6 lg:py-16 md:px-12">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10"
+      >
+        <div>
+          <h3
+            class="text-sm font-semibold text-gray-400 tracking-wider uppercase"
+          >
+            Customer Support
+          </h3>
+          <ul class="mt-4 space-y-4">
+            <li>
+              <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                Contact Us
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                Find a Distributor
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                Find a Store
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                Invention Submission
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                Custom Home Gym Design
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3
+            class="text-sm font-semibold text-gray-400 tracking-wider uppercase"
+          >
+            Product Support
+          </h3>
+          <ul class="mt-4 space-y-4">
+            <li>
+              <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                Download Catalog
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                Shop Parts
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                Product Registration
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3
+            class="text-sm font-semibold text-gray-400 tracking-wider uppercase"
+          >
+            Company
+          </h3>
+          <ul class="mt-4 space-y-4">
+            <li>
+              <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                About Us
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                Careers
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                Press Releases
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                Legal
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="text-base text-gray-500 hover:text-gray-900">
+                Cookie Preferences
+              </a>
+            </li>
+          </ul>
+        </div>
         <div class="space-y-8 xl:col-span-1">
-          <img
-            class="h-10"
-            src="https://tailwindui.com/img/logos/workflow-mark-gray-300.svg"
-            alt="Company name"
-          />
-          <p class="text-gray-500 text-base">
-            Making the world a better place through constructing elegant
-            hierarchies.
-          </p>
+          <img class="h-10" src="/logo.png" alt="Life Fitness" />
           <div class="flex space-x-6">
             <a href="#" class="text-gray-400 hover:text-gray-500">
               <span class="sr-only">Facebook</span>
@@ -62,224 +160,45 @@
             </a>
 
             <a href="#" class="text-gray-400 hover:text-gray-500">
-              <span class="sr-only">GitHub</span>
+              <span class="sr-only">YouTube</span>
               <svg
-                class="h-6 w-6"
-                fill="currentColor"
-                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
+                focusable="false"
+                class="h-6 w-6"
+                role="img"
+                viewBox="0 0 576 512"
               >
                 <path
-                  fill-rule="evenodd"
-                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                  clip-rule="evenodd"
+                  fill="currentColor"
+                  d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"
                 />
               </svg>
             </a>
 
             <a href="#" class="text-gray-400 hover:text-gray-500">
-              <span class="sr-only">Dribbble</span>
+              <span class="sr-only">Pintrest</span>
               <svg
-                class="h-6 w-6"
-                fill="currentColor"
-                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
+                focusable="false"
+                class="w-6 h-6"
+                role="img"
+                viewBox="0 0 496 512"
               >
                 <path
-                  fill-rule="evenodd"
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
-                  clip-rule="evenodd"
+                  fill="currentColor"
+                  d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3.8-3.4 5-20.3 6.9-28.1.6-2.5.3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"
                 />
               </svg>
             </a>
           </div>
         </div>
-        <div class="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
-          <div class="md:grid md:grid-cols-2 md:gap-8">
-            <div>
-              <h3
-                class="text-sm font-semibold text-gray-400 tracking-wider uppercase"
-              >
-                Solutions
-              </h3>
-              <ul class="mt-4 space-y-4">
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Marketing
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Analytics
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Commerce
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Insights
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="mt-12 md:mt-0">
-              <h3
-                class="text-sm font-semibold text-gray-400 tracking-wider uppercase"
-              >
-                Support
-              </h3>
-              <ul class="mt-4 space-y-4">
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Pricing
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Documentation
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Guides
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    API Status
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="md:grid md:grid-cols-2 md:gap-8">
-            <div>
-              <h3
-                class="text-sm font-semibold text-gray-400 tracking-wider uppercase"
-              >
-                Company
-              </h3>
-              <ul class="mt-4 space-y-4">
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    About
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Blog
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Jobs
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Press
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Partners
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="mt-12 md:mt-0">
-              <h3
-                class="text-sm font-semibold text-gray-400 tracking-wider uppercase"
-              >
-                Legal
-              </h3>
-              <ul class="mt-4 space-y-4">
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Claim
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Privacy
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    href="#"
-                    class="text-base text-gray-500 hover:text-gray-900"
-                  >
-                    Terms
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
       <div class="mt-12 border-t border-gray-200 pt-8">
         <p class="text-base text-gray-400 xl:text-center">
-          &copy; 2020 Workflow, Inc. All rights reserved.
+          &copy; 2021 Life Fitness. All rights reserved. Life Fitness is a
+          registered trademark.
         </p>
       </div>
     </div>
