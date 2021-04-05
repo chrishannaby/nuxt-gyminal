@@ -1,5 +1,11 @@
 <template>
   <div>
+    <app-crumbs :trail="trail" />
+    <app-hero
+      class="mt-4 -mx-4"
+      :title="subcategory.name"
+      :image="subcategory.image"
+    />
     <li v-for="product of products" :key="product.slug">
       <NuxtLink :to="`/${category.slug}/${subcategory.slug}/${product.slug}`">{{
         product.name
@@ -11,7 +17,6 @@
 <script>
 export default {
   async asyncData({ $content, params }) {
-    console.log(params)
     let category, subcategory, products
     try {
       subcategory = await $content('subcategories', params.subcategory).fetch()
@@ -20,11 +25,15 @@ export default {
         .where({ subcategory: params.subcategory })
         .fetch()
     } catch (err) {}
-    console.log(subcategory)
+    const trail = [
+      { name: category.name, path: `/${category.slug}` },
+      { name: subcategory.name, path: `/${category.slug}/${subcategory.slug}` },
+    ]
     return {
       products,
       category,
       subcategory,
+      trail,
     }
   },
   head() {

@@ -117,11 +117,9 @@
       </div>
     </nav>
 
-    <div class="py-10">
-      <main class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <nuxt />
-      </main>
-    </div>
+    <main class="py-8 max-w-7xl mx-auto px-4 lg:px-8 w-full">
+      <nuxt />
+    </main>
     <app-footer />
   </div>
 </template>
