@@ -71,18 +71,14 @@ exports.handler = async (event, context) => {
       STRIPE_WEBHOOK_SECRET
     );
   } catch (err) {
-    return { statusCode: 400 };
+    return { statusCode: 400, body: "could not deserialize event" };
   }
 
   // Handle the event
   switch (stripeEvent.type) {
-    case "payment_intent.succeeded":
+    case "charge.succeeded":
       const paymentIntent = stripeEvent.data.object;
       console.log('object', paymentIntent)
-      console.log(
-        "Payment was successful! Charge information:",
-        paymentIntent.charges.data.filter(charge => charge.status === "succeeded")
-      );
       const tasks = [sendEmail()]
       const customerPhone = paymentIntent.metadata.phone
       if (customerPhone) {
@@ -97,7 +93,7 @@ exports.handler = async (event, context) => {
     // ... handle other event types
     default:
       // Unexpected event type
-      return { statusCode: 400 };
+      return { statusCode: 400, body: "unknown event type" };
   }
 
   // Return a 200 response to acknowledge receipt of the event

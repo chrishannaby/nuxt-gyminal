@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col items-center">
-    <h2 class="text-gray-900 text-2xl font-black">
-      TOP SELLERS. SOMETHING FOR EVERYONE.
+    <h2 class="text-gray-900 text-2xl font-black uppercase text-center">
+      Top Sellers. Something for everyone.
     </h2>
-    <h3 class="text-sm mt-2 text-gray-700">
+    <h3 class="text-sm mt-2 text-gray-700 text-center">
       Explore our Top Sellers in Cardio Equipment.
     </h3>
     <div class="mt-8 grid grid-cols-4 h-64 w-full gap-8">

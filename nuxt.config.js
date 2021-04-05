@@ -1,3 +1,6 @@
+import fs from 'fs'
+import path from 'path'
+
 export default {
   target: 'static',
   /*
@@ -51,9 +54,27 @@ export default {
     '@nuxtjs/google-fonts',
     '@nuxt/image'
   ],
+
+  hooks: {
+    build: {
+      async done(builder) {
+        console.log(builder.nuxt.options.rootDir)
+        const extraFilePath = path.join(
+          builder.nuxt.options.rootDir,
+          'functions',
+          'data.json'
+        )
+        const { $content } = require('@nuxt/content')
+        const files = await $content('products').fetch()
+        fs.writeFileSync(extraFilePath, JSON.stringify(files))
+      }
+    }
+  },
   googleFonts: {
     families: {
-      Inter: true
+      Inter: {
+        wght: [100 + '..' + 900]
+      }
     }
   },
   tailwindcss: {

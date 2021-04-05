@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen bg-white">
-    <app-header v-model="menuOpen" :nav-links="navLinks" />
+    <app-nav v-model="menuOpen" :nav-links="navLinks" />
     <nuxt />
     <app-footer />
   </div>

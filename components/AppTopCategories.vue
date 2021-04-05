@@ -1,15 +1,20 @@
 <template>
   <div class="flex flex-col items-center">
     <h2 class="text-gray-900 text-2xl font-black">Top Categories</h2>
-    <div class="flex flex-wrap items-center">
-      <div
+    <div class="flex flex-wrap items-center justify-center">
+      <nuxt-link
         v-for="category in categories"
+        :to="`/${category.slug}`"
         :key="category.slug"
-        class="flex-1 flex flex-col items-center"
+        class="flex-shrink-0 flex flex-col items-center p-8"
       >
-        <img :src="category.icon" class="w-36 h-36" />
-        <h3 class="uppercase text-center">{{ category.name }}</h3>
-      </div>
+        <img :src="category.icon" class="w-28 h-28" />
+        <h3
+          class="uppercase text-center font-bold text-black mt-2 text-xs tracking-wider"
+        >
+          {{ category.name }}
+        </h3>
+      </nuxt-link>
     </div>
   </div>
 </template>

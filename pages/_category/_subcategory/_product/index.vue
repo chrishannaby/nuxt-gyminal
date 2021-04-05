@@ -1,6 +1,9 @@
 <template>
   <main class="py-8 max-w-7xl mx-auto px-4 lg:px-8 w-full">
-    {{ product.name }}
+    <h1>{{ product.name }}</h1>
+    <nuxt-img class="h-64 w-full object-contain" :src="product.image" />
+    <p>${{ product.price }}</p>
+    <button @click="addToCart">Add to cart</button>
   </main>
 </template>
 
@@ -18,6 +21,16 @@ export default {
       category,
       subcategory,
     }
+  },
+  methods: {
+    addToCart() {
+      const item = {
+        ...this.product,
+        quantity: 1,
+      }
+      console.log(item)
+      this.$store.commit('addToCart', { ...item })
+    },
   },
   head() {
     return {

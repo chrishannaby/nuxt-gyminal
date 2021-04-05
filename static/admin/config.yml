@@ -58,6 +58,7 @@ collections:
     identifier_field: name
     fields:
       - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'ID', name: 'id', widget: 'string' }
       - {
           label: 'Subcategory',
           name: 'subcategory',
@@ -66,4 +67,17 @@ collections:
           search_fields: ['name'],
           value_field: '{{slug}}',
           display_fields: ['{{category}} {{name}}'],
+        }
+      - {
+          label: 'Price',
+          name: 'price',
+          widget: 'number',
+          value_type: 'float',
+          min: 0.01,
+        }
+      - {
+          label: 'Image',
+          name: 'image',
+          widget: 'image',
+          allow_multiple: false,
         }

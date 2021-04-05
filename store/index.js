@@ -1,17 +1,12 @@
 import axios from "axios";
-import data from "~/static/storedata.json";
 
 export const state = () => ({
   cartUIStatus: "idle",
-  storedata: data,
   cart: [],
   clientSecret: "" // Required to initiate the payment from the client
 });
 
 export const getters = {
-  featuredProducts: state => state.storedata.slice(0, 3),
-  women: state => state.storedata.filter(el => el.gender === "Female"),
-  men: state => state.storedata.filter(el => el.gender === "Male"),
   cartCount: state => {
     if (!state.cart.length) return 0;
     return state.cart.reduce((ac, next) => ac + next.quantity, 0);
@@ -25,6 +20,7 @@ export const getters = {
     return state.cart.map(item => {
       return {
         id: item.id,
+        price: item.price,
         quantity: item.quantity
       };
     });

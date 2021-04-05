@@ -1,7 +1,8 @@
 // An endpoint that calculates the order total and creates a 
 // PaymentIntent on Stripe 
-
 require("dotenv").config();
+const fs = require("fs").promises;
+const path = require("path");
 const axios = require("axios");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY),
   headers = {
@@ -39,16 +40,17 @@ exports.handler = async (event, context) => {
     // from manipulating the order amount from the client
     // Here we will use a simple json file to represent inventory
     // but you could replace this with a DB lookup
-    const storeDatabase = await axios.get(
-      "https://ecommerce-netlify.netlify.app/storedata.json"
-    );
-
+    const json = await fs.readFile(path.join(__dirname, "data.json"), {
+      encoding: "utf-8"
+    });
+    const storedata = JSON.parse(json)
+    console.log(storedata)
     const amount = data.items.reduce((prev, item) => {
-      // lookup item information from "database" and calculate total amount
-      const itemData = storeDatabase.data.find(
+      //lookup item information from "database" and calculate total amount
+      const itemData = storedata.find(
         storeItem => storeItem.id === item.id
       );
-      return prev + itemData.price * 100 * item.quantity;
+      return prev + item.price * 100 * item.quantity;
     }, 0);
 
     // Create a PaymentIntent on Stripe
