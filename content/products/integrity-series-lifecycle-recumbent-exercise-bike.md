@@ -5,6 +5,7 @@ subcategory: exercise-bikes
 price: 6499
 image: https://res.cloudinary.com/chrishannaby/image/upload/v1617735731/lifefitness/integrity-recumbentbike-black-se3hd-standard_e0ew68.png
 featured: true
+rating: 4.6
 ---
 
 Multiple recumbent bike combinations offer comfortable and inviting experiences for any exerciser. The Integrity Series benefits from a sleek and modern design, and is rooted in more than 20 years of reliability and innovation. Each bike offers wireless internet connection, which provides valuable asset management data and insights about your exercisers.

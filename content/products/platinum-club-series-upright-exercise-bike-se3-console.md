@@ -5,6 +5,7 @@ subcategory: exercise-bikes
 price: 6299
 image: https://res.cloudinary.com/chrishannaby/image/upload/lifefitness/pcs-uprightbike-arcticsilver-discoverse3hd-standardview-newcrank_swx5wf.jpg
 featured: true
+rating: 3.9
 ---
 
 ## FOUND IN HEALTH CLUBS
