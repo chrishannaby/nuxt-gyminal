@@ -86,3 +86,4 @@ collections:
           widget: 'image',
           allow_multiple: false,
         }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
