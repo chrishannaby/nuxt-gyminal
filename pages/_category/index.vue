@@ -2,7 +2,7 @@
   <main class="py-8 max-w-7xl mx-auto px-4 lg:px-8 w-full">
     <app-crumbs :trail="trail" />
     <app-hero
-      class="mt-4 -mx-4"
+      class="mt-4 -mx-4 lg:mx-0"
       :title="category.name"
       :image="category.image"
     />

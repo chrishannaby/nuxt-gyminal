@@ -23,7 +23,7 @@
           />
           <div class="px-4">
             <p
-              class="mt-2 p-2 border-t-2 border-lf-red text-sm uppercase font-semibold tracking-wider"
+              class="mt-2 pt-2 border-t-2 border-lf-red text-sm uppercase font-semibold tracking-wide"
             >
               {{ product.name }}
             </p>

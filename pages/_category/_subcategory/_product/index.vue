@@ -10,8 +10,17 @@
         <h1 class="mt-8 text-3xl xs:text-4xl text-gray-800 font-bold">
           {{ product.name }}
         </h1>
+
+        <star-rating
+          class="my-4"
+          :star-size="20"
+          :read-only="true"
+          :show-rating="false"
+          :rating="product.rating"
+          active-color="#E21937"
+        ></star-rating>
         <p
-          class="mt-4 pt-4 border-t-2 border-lf-red text-black font-light text-2xl"
+          class="mt-2 pt-4 border-t-2 border-lf-red text-black font-light text-2xl"
         >
           {{ product.price | dollar }}
         </p>
@@ -31,7 +40,12 @@
 </template>
 
 <script>
+import StarRating from 'vue-star-rating'
+
 export default {
+  components: {
+    StarRating,
+  },
   async asyncData({ $content, params }) {
     let category, subcategory, product
     try {
