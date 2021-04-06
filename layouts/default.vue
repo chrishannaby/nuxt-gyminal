@@ -1,5 +1,8 @@
 <template>
-  <div class="min-h-screen bg-white">
+  <div
+    :class="$route.name === 'cart' ? 'bg-white' : 'bg-gray-100'"
+    class="min-h-screen overflow-hidden"
+  >
     <app-nav v-model="menuOpen" :nav-links="navLinks" />
     <nuxt />
     <app-footer />

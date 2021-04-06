@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col items-center">
-    <h2 class="text-gray-900 text-2xl font-black">Top Categories</h2>
+    <h2 class="text-gray-900 text-3xl font-black uppercase">Top Categories</h2>
     <div class="flex flex-wrap items-center justify-center">
       <nuxt-link
         v-for="category in categories"
         :to="`/${category.slug}`"
         :key="category.slug"
-        class="flex-shrink-0 flex flex-col items-center p-8"
+        class="flex-shrink-0 flex flex-col items-center p-8 transition-transform duration-200	hover:transform hover:-translate-y-2"
       >
         <img :src="category.icon" class="w-28 h-28" />
         <h3

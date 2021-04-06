@@ -12,18 +12,15 @@
         v-for="subcategory of subcategories"
         :key="subcategory.slug"
         :to="`/${category.slug}/${subcategory.slug}`"
-        class="flex flex-col group"
+        class="flex flex-col transition-transform duration-200	hover:transform hover:-translate-y-2"
       >
         <div class="flex-shrink-0 h-60 grid grid-cols-1 grid-rows-1">
           <img
             class="row-start-1 col-start-1 h-full object-cover"
             :src="subcategory.image"
           />
-          <div
-            class="row-start-1 col-start-1 h-full w-full bg-black group-hover:bg-opacity-10 bg-opacity-0"
-          ></div>
         </div>
-        <h3 class="flex-1 mt-2  group-hover:underline">
+        <h3 class="flex-1 mt-2">
           {{ subcategory.name }}
         </h3>
       </NuxtLink>

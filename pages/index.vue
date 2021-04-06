@@ -22,10 +22,14 @@
         </button>
       </div>
     </div>
-    <main class="py-8 max-w-7xl mx-auto px-4 lg:px-8 w-full">
-      <app-top-sellers />
-      <app-top-categories :categories="categories" />
+    <main class="pt-12 max-w-7xl mx-auto px-4 lg:px-8 w-full">
+      <app-top-sellers :products="featuredProducts" />
     </main>
+    <app-testimonial class="mt-16" />
+    <app-top-categories
+      class="w-screen pt-20 pb-12 bg-white"
+      :categories="categories"
+    />
   </div>
 </template>
 
@@ -33,8 +37,14 @@
 export default {
   async asyncData({ $content, params, error }) {
     const categories = await $content('categories', params.category).fetch()
+    const featuredProducts = await $content('products')
+      .where({ featured: true })
+      .limit(4)
+      .fetch()
+    console.log(featuredProducts)
     return {
       categories,
+      featuredProducts,
     }
   },
   head() {

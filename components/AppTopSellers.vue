@@ -6,17 +6,41 @@
     <h3 class="text-sm mt-2 text-gray-700 text-center">
       Explore our Top Sellers in Cardio Equipment.
     </h3>
-    <div class="mt-8 grid grid-cols-4 h-64 w-full gap-8">
-      <div v-for="i in 4" :key="i">
-        <div class="bg-black h-48 w-full"></div>
-        <p>{{ i }}</p>
-      </div>
+    <div
+      class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-8 items-stretch"
+    >
+      <nuxt-link
+        :to="`/cardio/${product.subcategory}/${product.slug}`"
+        v-for="product in products"
+        :key="product.id"
+      >
+        <div
+          class="bg-white h-full p-4 transition-transform duration-200	hover:transform hover:-translate-y-2"
+        >
+          <img
+            :src="product.image"
+            class="p-4 h-52 w-full object-scale-down object-center"
+          />
+          <div class="px-4">
+            <p
+              class="mt-2 p-2 border-t-2 border-lf-red text-sm uppercase font-semibold tracking-wider"
+            >
+              {{ product.name }}
+            </p>
+          </div>
+        </div>
+      </nuxt-link>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    products: Array,
+  },
+  mounted() {
+    console.log({ products: this.products })
+  },
+}
 </script>
-
-<style></style>

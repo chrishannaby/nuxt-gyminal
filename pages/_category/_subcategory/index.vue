@@ -6,11 +6,15 @@
       :title="subcategory.name"
       :image="subcategory.image"
     />
-    <li v-for="product of products" :key="product.slug">
-      <NuxtLink :to="`/${category.slug}/${subcategory.slug}/${product.slug}`">{{
-        product.name
-      }}</NuxtLink>
-    </li>
+    <div class="mt-8 grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+      <NuxtLink
+        v-for="product of products"
+        :key="product.slug"
+        :to="`/${category.slug}/${subcategory.slug}/${product.slug}`"
+      >
+        <app-product-card :product="product" />
+      </NuxtLink>
+    </div>
   </main>
 </template>
 
