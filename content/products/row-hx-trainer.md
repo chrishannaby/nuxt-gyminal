@@ -1,7 +1,7 @@
 ---
 name: Row HX Trainer
 id: f00f6b48-028b-48a5-a94e-3a842fdbbea0
-subcategory: exercise-bikes
+subcategory: rowers
 price: 1499
 image: https://res.cloudinary.com/chrishannaby/image/upload/v1617735945/lifefitness/Row-HX-Trainer-Standard-Angled-l_oflh13.jpg
 ---
