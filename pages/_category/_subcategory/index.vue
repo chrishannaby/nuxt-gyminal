@@ -152,12 +152,15 @@ export default {
       rating: null,
       ratings: [5, 4, 3, 2, 1, 0],
       filtersOpen: false,
-      windowWidth: window.innerWidth,
+      windowWidth: null,
     }
   },
   mounted() {
-    window.onresize = () => {
+    if (process.client) {
       this.windowWidth = window.innerWidth
+      window.onresize = () => {
+        this.windowWidth = window.innerWidth
+      }
     }
   },
 }
