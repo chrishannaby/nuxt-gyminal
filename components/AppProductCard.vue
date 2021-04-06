@@ -15,24 +15,13 @@
       <p class="mt-1 text-sm">
         {{ product.price | dollar }}
       </p>
-      <star-rating
-        :star-size="15"
-        :read-only="true"
-        :show-rating="false"
-        :rating="product.rating"
-        active-color="#E21937"
-      ></star-rating>
+      <app-star-rating class="py-2" size="w-4 h-4" :rating="product.rating" />
     </div>
   </div>
 </template>
 
 <script>
-import StarRating from 'vue-star-rating'
-
 export default {
-  components: {
-    StarRating,
-  },
   props: {
     product: Object,
   },
