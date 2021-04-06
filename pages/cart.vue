@@ -48,5 +48,11 @@ export default {
       this.$store.commit('startCheckout')
     },
   },
+  head() {
+    return {
+      title: 'Cart | Life Fitness',
+      meta: [{ name: 'robots', content: 'noindex' }],
+    }
+  },
 }
 </script>
