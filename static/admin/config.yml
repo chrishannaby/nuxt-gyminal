@@ -86,4 +86,10 @@ collections:
           widget: 'image',
           allow_multiple: false,
         }
+      - {
+          label: 'Featured',
+          name: 'featured',
+          widget: 'boolean',
+          required: false,
+        }
       - { label: 'Body', name: 'body', widget: 'markdown' }
