@@ -36,7 +36,7 @@ export const mutations = {
     if (state.cart.length === 0) state.cartUIStatus = "idle"
     let itemfound = state.cart.find(el => el.id === payload.id);
     itemfound
-      ? (itemfound.quantity += payload.quantity)
+      ? (itemfound.quantity++)
       : state.cart.push(payload)
   },
   removeOneFromCart: (state, payload) => {

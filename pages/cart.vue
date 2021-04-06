@@ -45,12 +45,5 @@ export default {
       this.$store.commit('startCheckout')
     },
   },
-  watch: {
-    $route: function() {
-      if (process.client && this.cartUIStatus === 'completed') {
-        this.$store.commit('resetCart')
-      }
-    },
-  },
 }
 </script>
