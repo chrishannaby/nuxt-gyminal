@@ -4,6 +4,7 @@ id: f00f6b48-028b-48a5-a94e-3a842fdbbea0
 subcategory: rowers
 price: 1499
 image: https://res.cloudinary.com/chrishannaby/image/upload/v1617735945/lifefitness/Row-HX-Trainer-Standard-Angled-l_oflh13.jpg
+featured: true
 ---
 # VERSATILE TOTAL-BODY CARDIO
 The Row HX Trainer is perfect for a low-impact, total-body workout at home. Its beautiful design makes it a great addition to any room. Fluid Technology resistance delivers a smooth and natural feel. The Row HX accommodates the whole family and delivers premium performance from the convenience of your home.
