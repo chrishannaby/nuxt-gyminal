@@ -1,58 +1,56 @@
 <template>
-  <main class="py-8 max-w-7xl mx-auto px-4 lg:px-8 w-full">
+  <main class="py-8 max-w-7xl mx-auto px-4 lg:px-8 w-full space-y-8">
     <app-cart-steps />
 
-    <section v-if="cartUIStatus === 'idle'">
-      <app-cart-display />
+    <section v-if="cartUIStatus === 'empty'">
+      <app-cart-empty />
     </section>
 
-    <section v-else-if="cartUIStatus === 'loading'" class="loader">
-      Loading
+    <section v-if="cartUIStatus === 'idle'" class="flex space-x-4">
+      <app-cart-display class="flex-1" />
+      <div>
+        <app-cart-summary />
+        <button
+          @click="startCheckout"
+          class="mt-4 w-full bg-lf-red text-white text-sm font-medium py-4"
+        >
+          Checkout
+        </button>
+      </div>
     </section>
 
-    <section v-else-if="cartUIStatus === 'success'" class="success">
-      <h2>Success!</h2>
-      <p>
-        Thank you for your purchase. You'll be receiving your items in 4
-        business days.
-      </p>
-      <p>Forgot something?</p>
-      <button class="pay-with-stripe">
-        <nuxt-link exact to="/">Back to Home</nuxt-link>
-      </button>
+    <section
+      v-if="cartUIStatus === 'checkout'"
+      class="flex space-y-4 md:space-x-8 md:items-start flex-col md:flex-row "
+    >
+      <app-stripe class="flex-1" />
+      <app-cart-summary />
     </section>
 
-    <section v-else-if="cartUIStatus === 'failure'">
-      <p>
-        Oops, something went wrong. Redirecting you to your cart to try again.
-      </p>
+    <section v-else-if="cartUIStatus === 'completed'">
+      <app-cart-complete />
     </section>
   </main>
 </template>
 
 <script>
-import AppCartSteps from '~/components/AppCartSteps.vue'
-import AppCartDisplay from '~/components/AppCartDisplay.vue'
 import { mapState } from 'vuex'
 
 export default {
-  components: {
-    AppCartDisplay,
-    AppCartSteps,
-  },
   computed: {
     ...mapState(['cartUIStatus']),
   },
+  methods: {
+    startCheckout() {
+      this.$store.commit('startCheckout')
+    },
+  },
+  watch: {
+    $route: function() {
+      if (process.client && this.cartUIStatus === 'completed') {
+        this.$store.commit('resetCart')
+      }
+    },
+  },
 }
 </script>
-
-<style lang="scss" scoped>
-.loader {
-  display: flex;
-  justify-content: center;
-}
-
-.success {
-  text-align: center;
-}
-</style>

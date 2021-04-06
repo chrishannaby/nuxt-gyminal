@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const state = () => ({
-  cartUIStatus: "idle",
+  cartUIStatus: "empty",
   cart: [],
   clientSecret: "" // Required to initiate the payment from the client
 });
@@ -29,35 +29,42 @@ export const getters = {
 };
 
 export const mutations = {
-  updateCartUI: (state, payload) => {
-    state.cartUIStatus = payload;
-  },
-  clearCart: state => {
-    //this clears the cart
-    (state.cart = []), (state.cartUIStatus = "idle");
+  resetCart: state => {
+    (state.cart = []), (state.cartUIStatus = "empty");
   },
   addToCart: (state, payload) => {
+    if (state.cart.length === 0) state.cartUIStatus = "idle"
     let itemfound = state.cart.find(el => el.id === payload.id);
     itemfound
       ? (itemfound.quantity += payload.quantity)
       : state.cart.push(payload)
   },
-  setClientSecret: (state, payload) => {
-    state.clientSecret = payload;
-  },
-  addOneToCart: (state, payload) => {
-    let itemfound = state.cart.find(el => el.id === payload.id)
-    itemfound ? itemfound.quantity++ : state.cart.push(payload)
-  },
   removeOneFromCart: (state, payload) => {
     let index = state.cart.findIndex(el => el.id === payload.id)
-    state.cart[index].quantity
-      ? state.cart[index].quantity--
-      : state.cart.splice(index, 1)
+    if (state.cart[index].quantity > 1) {
+      state.cart[index].quantity--
+    }
   },
   removeAllFromCart: (state, payload) => {
     state.cart = state.cart.filter(el => el.id !== payload.id)
-  }
+    if (state.cart.length === 0) {
+      state.cartUIStatus = "empty"
+    }
+  },
+  startCheckout: state => {
+    if (state.cartUIStatus === "idle") {
+      state.cartUIStatus = "checkout"
+    }
+  },
+  orderCompleted: state => {
+    if (state.cartUIStatus === "checkout") {
+      state.cartUIStatus = "completed"
+      state.cart = []
+    }
+  },
+  setClientSecret: (state, payload) => {
+    state.clientSecret = payload;
+  },
 };
 
 export const actions = {

@@ -60,24 +60,24 @@ export default {
     ...mapState(['cartUIStatus']),
     ...mapGetters(['cartCount']),
     steps() {
-      if (this.cartUIStatus === 'idle' && this.cartCount === 0) {
+      if (['empty', 'idle'].includes(this.cartUIStatus)) {
         return [
           { name: 'Shopping Cart', active: true },
-          { name: 'Check Out' },
+          { name: 'Checkout' },
           { name: 'Order Complete' },
         ]
       }
-      if (this.cartUIStatus === 'idle' && this.cartCount > 0) {
+      if (this.cartUIStatus === 'checkout') {
         return [
           { name: 'Shopping Cart' },
-          { name: 'Check Out', active: true },
+          { name: 'Checkout', active: true },
           { name: 'Order Complete' },
         ]
       }
-      if (this.cartUIStatus === 'success') {
+      if (this.cartUIStatus === 'completed') {
         return [
           { name: 'Shopping Cart' },
-          { name: 'Check Out' },
+          { name: 'Checkout' },
           { name: 'Order Complete', active: true },
         ]
       }

@@ -33,7 +33,7 @@
           <div class="flex items-center space-x-2">
             <nuxt-link
               to="/cart"
-              class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lf-red relative"
+              class="bg-white p-2 rounded-md text-gray-400 hover:text-gray-500 focus:outline-none relative"
             >
               <span class="sr-only">Shopping Cart</span>
               <svg

@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   head() {
     return {
@@ -47,10 +49,16 @@ export default {
       ],
     }
   },
+  computed: {
+    ...mapState(['cartUIStatus']),
+  },
   watch: {
     $route: function() {
       if (process.client) {
         this.menuOpen = false
+        if (this.cartUIStatus === 'completed') {
+          this.$store.commit('resetCart')
+        }
       }
     },
   },
