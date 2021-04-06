@@ -1,48 +1,55 @@
 <template>
-  <div id="app">
-    <div v-if="cartUIStatus === 'idle'" class="payment">
-      <h3>Please enter your payment details:</h3>
-      <label for="email">Email</label>
-      <br />
-      <input
-        id="email"
-        type="email"
-        v-model="stripeEmail"
-        placeholder="name@example.com"
-      />
-      <br />
-      <label for="card">Credit Card</label>
-      <br />
-      <small>
-        Test using these Stripe test credit card numbers with any CVC, postal
-        code, and expiration date in the future:
-        <ul>
-          <li>
-            <span class="cc-number">4242 4242 4242 4242</span>
-          </li>
-          <li>
-            <span class="cc-number">4000 0027 6000 3184</span> (requires
-            authentication, will trigger a pop-up)
-          </li>
-          <li>
-            <span class="cc-number">4000 0000 0000 9995</span> (will decline
-            with a decline code of insufficient funds)
-          </li>
-        </ul>
-      </small>
-      <card
-        class="stripe-card"
-        id="card"
-        :class="{ complete }"
-        stripe="pk_test_51IcZXsCCsPf73fDLjjEL8wBWWEO7dei56cyV3hORf8ne1i8tg2aDpemaDCxV9CVXM9O4UFXmUNMSMLK5lmjyg1lJ00byxBS7uz"
-        :options="stripeOptions"
-        @change="complete = $event.complete"
-      />
+  <div>
+    <div v-if="cartUIStatus === 'idle'" class="mt-4 space-y-4">
+      <div>
+        <label for="phone" class="block text-sm font-medium text-gray-700"
+          >Phone Number</label
+        >
+        <div class="mt-1">
+          <input
+            v-model="stripePhone"
+            type="text"
+            name="phone"
+            id="phone"
+            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full text-sm border-gray-300 rounded-md"
+            placeholder="+1 (123) 123-1234"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700"
+          >Email</label
+        >
+        <div class="mt-1">
+          <input
+            v-model="stripeEmail"
+            type="text"
+            name="email"
+            id="email"
+            class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full text-sm border-gray-300 rounded-md"
+            placeholder="you@example.com"
+          />
+        </div>
+      </div>
+      <div>
+        <label for="card" class="block text-sm font-medium text-gray-700"
+          >Credit Card</label
+        >
+        <card
+          class="mt-1 px-3 py-2 shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full text-sm border border-gray-300 rounded-md"
+          id="card"
+          :class="{ complete }"
+          stripe="pk_test_51IcZXsCCsPf73fDLjjEL8wBWWEO7dei56cyV3hORf8ne1i8tg2aDpemaDCxV9CVXM9O4UFXmUNMSMLK5lmjyg1lJ00byxBS7uz"
+          :options="stripeOptions"
+          @change="complete = $event.complete"
+        />
+      </div>
       <small class="card-error">{{ error }}</small>
       <button
-        class="pay-with-stripe button"
+        class="w-full bg-lf-red text-white font-medium py-2"
+        :class="payDisabled ? 'cursor-not-allowed bg-opacity-20' : ''"
         @click="pay"
-        :disabled="!complete || !stripeEmail || loading"
+        :disabled="payDisabled"
       >
         Pay with credit card
       </button>
@@ -76,6 +83,9 @@ export default {
   components: { Card },
   computed: {
     ...mapState(['cartUIStatus']),
+    payDisabled() {
+      return !this.complete || !this.stripeEmail || this.loading
+    },
   },
   mounted() {
     // create a PaymentIntent on Stripe with order information
@@ -85,10 +95,26 @@ export default {
     return {
       complete: false,
       stripeOptions: {
-        // you can configure that cc element. I liked the default, but you can
-        // see https://stripe.com/docs/stripe.js#element-options for details
+        style: {
+          base: {
+            fontFamily:
+              'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+            fontSize: '14px',
+            fontWeight: '400',
+            lineHeight: '20px',
+            color: '#555',
+            '::placeholder': {
+              color: '#909090',
+            },
+          },
+          invalid: {
+            iconColor: 'rgb(132, 53, 52)',
+            color: '#555',
+          },
+        },
       },
       stripeEmail: '',
+      stripePhone: '',
       error: '',
       loading: false,
     }
@@ -99,6 +125,11 @@ export default {
       // pop-up modal if the purchase requires authentication
       this.loading = true
       handleCardPayment(this.$store.getters.clientSecret, {
+        shipping: {
+          address: { line1: '' },
+          name: '',
+          phone: this.stripePhone,
+        },
         receipt_email: this.stripeEmail,
       }).then((result) => {
         this.loading = false
@@ -128,29 +159,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-input,
-button {
-  width: 100%;
-}
-
-button {
-  margin-top: 20px;
-}
-
-.payment {
-  margin-top: 20px;
-}
-
-.stripe-card {
-  margin-top: 10px;
-  width: 100%;
-  border: 1px solid #ccc;
-  padding: 5px 10px;
-}
-
-.stripe-card.complete {
-  border-color: green;
-}
-</style>

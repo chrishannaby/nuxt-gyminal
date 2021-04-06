@@ -19,7 +19,6 @@ const sendgrid = require('@sendgrid/mail');
 sendgrid.setApiKey(SENDGRID_API_KEY)
 
 const msg = {
-  to: 'chrishannaby@gmail.com',
   from: SENDGRID_EMAIL,
   templateId: 'd-359a4929e63d43e3aad92a53231cb5e9',
   dynamicTemplateData: {
@@ -33,9 +32,12 @@ const msg = {
   }
 }
 
-async function sendEmail() {
+async function sendEmail(customerEmail) {
   try {
-    await sendgrid.send(msg)
+    await sendgrid.send({
+      ...msg,
+      to: customerEmail
+    })
     console.log("email sent")
   }
   catch (error) {
@@ -76,11 +78,15 @@ exports.handler = async (event, context) => {
 
   // Handle the event
   switch (stripeEvent.type) {
-    case "charge.succeeded":
+    case "payment_intent.succeeded":
       const paymentIntent = stripeEvent.data.object;
       console.log('object', paymentIntent)
-      const tasks = [sendEmail()]
-      const customerPhone = paymentIntent.metadata.phone
+      const customerEmail = paymentIntent.receipt_email
+      const tasks = []
+      if (customerEmail) {
+        tasks.push(sendEmail(customerEmail))
+      }
+      const customerPhone = paymentIntent.shipping.phone
       if (customerPhone) {
         tasks.push(sendSMS(customerPhone))
       }
