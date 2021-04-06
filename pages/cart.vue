@@ -6,7 +6,10 @@
       <app-cart-empty />
     </section>
 
-    <section v-if="cartUIStatus === 'idle'" class="flex space-x-4">
+    <section
+      v-if="cartUIStatus === 'idle'"
+      class="grid gap-8 grid-cols-1 lg:grid-cols-[1fr,auto]"
+    >
       <app-cart-display class="flex-1" />
       <div>
         <app-cart-summary />
