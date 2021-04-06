@@ -1,7 +1,7 @@
 <template>
   <main class="py-8 max-w-7xl mx-auto px-4 lg:px-8 w-full">
     <h1>{{ product.name }}</h1>
-    <nuxt-img class="h-64 w-full object-contain" :src="product.image" />
+    <img class="h-64 w-full object-contain" :src="product.image" />
     <p>${{ product.price }}</p>
     <button @click="addToCart">Add to cart</button>
   </main>

@@ -1,5 +1,10 @@
-import fs from 'fs'
-import path from 'path'
+import cloudinary from 'cloudinary'
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 export default {
   target: 'static',
@@ -7,7 +12,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: "Life Fitness",
     script: [{ src: 'https://js.stripe.com/v3/' }],
     meta: [
       { charset: 'utf-8' },
@@ -20,19 +25,12 @@ export default {
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    link: [
-      {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css?family=Montserrat:300,600|PT+Serif&display=swap'
-      }
-    ]
   },
   components: true,
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: '#E21937' },
   /*
    ** Plugins to load before mounting the App
    */
@@ -52,22 +50,21 @@ export default {
   buildModules: [
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
-    '@nuxt/image'
   ],
-
   hooks: {
     build: {
       async done(builder) {
-        console.log(builder.nuxt.options.rootDir)
-        const extraFilePath = path.join(
-          builder.nuxt.options.rootDir,
-          'functions',
-          'create-payment-intent',
-          'data.json'
-        )
         const { $content } = require('@nuxt/content')
-        const files = await $content('products').fetch()
-        fs.writeFileSync(extraFilePath, JSON.stringify(files))
+        const products = await $content('products')
+          .only(['name', 'id', 'price'])
+          .fetch()
+        const buffer = Buffer.from(JSON.stringify(products)).toString("base64")
+        const dataUri = "data:application/json;base64," + buffer
+        cloudinary.v2.uploader.upload(dataUri,
+          {
+            resource_type: "raw", public_id: "lifefitness/products.json",
+            overwrite: true,
+          });
       }
     }
   },

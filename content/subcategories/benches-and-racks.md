@@ -1,5 +1,5 @@
 ---
 name: Benches and Racks
 category: strength
-image: https://shop.lifefitness.com/UserFiles/hsr%20crop.jpg
+image: https://res.cloudinary.com/chrishannaby/image/upload/lifefitness/benches-and-racks.jpg
 ---

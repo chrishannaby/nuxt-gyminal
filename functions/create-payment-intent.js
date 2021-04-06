@@ -1,12 +1,7 @@
 // An endpoint that calculates the order total and creates a 
 // PaymentIntent on Stripe 
 require("dotenv").config();
-const fs = require("fs");
-// read in the product details from a file
-// this file is updated using content from Netlify CMS during the nuxt build process
-const json = fs.readFileSync(require.resolve('./data.json'))
-const database = JSON.parse(json)
-
+const axios = require("axios");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY),
   headers = {
     "Access-Control-Allow-Origin": "*",
@@ -14,7 +9,6 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY),
   };
 
 exports.handler = async (event, context) => {
-  console.log(database)
   // CORS
   if (event.httpMethod === "OPTIONS") {
     return {
@@ -39,9 +33,17 @@ exports.handler = async (event, context) => {
 
   // Stripe payment processing begins here
   try {
+    // Always calculate the order amount on your server to prevent customers
+    // from manipulating the order amount from the client
+    // Here we will use a simple json file to represent inventory
+    // but you could replace this with a DB lookup
+    const storeDatabase = await axios.get(
+      "https://res.cloudinary.com/chrishannaby/raw/upload/lifefitness/products.json"
+    );
+
     const amount = body.items.reduce((prev, item) => {
       //lookup item information from "database" and calculate total amount
-      const itemData = database.find(
+      const itemData = storeDatabase.data.find(
         storeItem => storeItem.id === item.id
       );
       return prev + item.price * 100 * item.quantity;

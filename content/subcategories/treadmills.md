@@ -1,5 +1,5 @@
 ---
 name: Treadmills
 category: cardio
-image: 'https://shop.lifefitness.com/UserFiles/Images/Category/LiveMore-MaleRunner-PCS-Treadmill3.jpg'
+image: https://res.cloudinary.com/chrishannaby/image/upload/c_crop,h_417,w_1024,x_538/v1617671313/lifefitness/treadmills.jpg
 ---

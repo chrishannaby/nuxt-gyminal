@@ -2,7 +2,7 @@
   <div
     class="grid grid-cols-1 grid-rows-1 h-80 overflow-hidden place-items-center"
   >
-    <nuxt-img
+    <img
       :src="image"
       class="row-start-1 col-start-1 w-full h-80 object-cover"
     />

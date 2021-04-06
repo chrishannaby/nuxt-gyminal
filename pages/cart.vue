@@ -1,15 +1,13 @@
 <template>
-  <div>
+  <main class="py-8 max-w-7xl mx-auto px-4 lg:px-8 w-full">
     <app-cart-steps />
-    <hr />
-    <h1 class="center">Your Cart</h1>
 
     <section v-if="cartUIStatus === 'idle'">
       <app-cart-display />
     </section>
 
     <section v-else-if="cartUIStatus === 'loading'" class="loader">
-      <app-loader />
+      Loading
     </section>
 
     <section v-else-if="cartUIStatus === 'success'" class="success">
@@ -29,11 +27,10 @@
         Oops, something went wrong. Redirecting you to your cart to try again.
       </p>
     </section>
-  </div>
+  </main>
 </template>
 
 <script>
-import AppLoader from '~/components/AppLoader.vue'
 import AppCartSteps from '~/components/AppCartSteps.vue'
 import AppCartDisplay from '~/components/AppCartDisplay.vue'
 import { mapState } from 'vuex'
@@ -42,7 +39,6 @@ export default {
   components: {
     AppCartDisplay,
     AppCartSteps,
-    AppLoader,
   },
   computed: {
     ...mapState(['cartUIStatus']),

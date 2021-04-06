@@ -3,7 +3,7 @@
     <div class="w-screen h-96 grid grid-rows-1 grid-cols-1 place-items-center">
       <video
         class="row-start-1 col-start-1 w-full h-96 object-cover"
-        src="/hype.mp4"
+        src="https://res.cloudinary.com/chrishannaby/video/upload/v1617666988/lifefitness/hype_d4ozex.mp4"
         autoplay
         muted
         loop

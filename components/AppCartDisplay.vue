@@ -11,11 +11,7 @@
         </tr>
         <tr v-for="item in cart" :key="item.id">
           <td>
-            <img
-              :src="`/products/${item.image}`"
-              :alt="item.name"
-              class="product-img"
-            />
+            <img :src="item.image" :alt="item.name" class="product-img" />
             <h3 class="product-name">{{ item.name }}</h3>
             <h5 v-if="item.size" class="product-size">Size: {{ item.size }}</h5>
           </td>
