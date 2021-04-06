@@ -1,7 +1,7 @@
 <template>
   <!-- This example requires Tailwind CSS v2.0+ -->
   <footer
-    class="bg-white border-t-4 border-lf-red"
+    class="mt-24 bg-white border-t-4 border-lf-red"
     aria-labelledby="footerHeading"
   >
     <h2 id="footerHeading" class="sr-only">Footer</h2>

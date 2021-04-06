@@ -81,6 +81,15 @@ collections:
           min: 0.01,
         }
       - {
+          label: 'Rating',
+          name: 'rating',
+          widget: 'number',
+          value_type: 'float',
+          min: 0,
+          max: 5,
+          default: 0,
+        }
+      - {
           label: 'Image',
           name: 'image',
           widget: 'image',
