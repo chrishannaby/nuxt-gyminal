@@ -91,7 +91,7 @@
           class="transition-all duration-500 ease-in-out	"
           v-for="product of filteredProducts"
           :key="product.slug"
-          :to="`/${category.slug}/${subcategory.slug}/${product.slug}`"
+          :to="`/products/${product.slug}`"
         >
           <app-product-card :product="product" />
         </NuxtLink>

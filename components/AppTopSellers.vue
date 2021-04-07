@@ -10,7 +10,7 @@
       class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-8 items-stretch"
     >
       <nuxt-link
-        :to="`/cardio/${product.subcategory}/${product.slug}`"
+        :to="`/products/${product.slug}`"
         v-for="product in products"
         :key="product.id"
       >

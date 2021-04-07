@@ -40,16 +40,12 @@
 <script>
 export default {
   async asyncData({ $content, params }) {
-    let category, subcategory, product
+    let product
     try {
-      subcategory = await $content('subcategories', params.subcategory).fetch()
-      category = await $content('categories', subcategory.category).fetch()
-      product = await $content('products', params.product).fetch()
+      product = await $content('products', params.slug).fetch()
     } catch (err) {}
     return {
       product,
-      category,
-      subcategory,
     }
   },
   methods: {
@@ -69,5 +65,3 @@ export default {
   },
 }
 </script>
-
-<style></style>
