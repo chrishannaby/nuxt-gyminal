@@ -1,5 +1,4 @@
 User-agent: Algolia Crawler
-Disallow: /$
 Disallow: /cardio
 Disallow: /strength
 Disallow: /accessories
