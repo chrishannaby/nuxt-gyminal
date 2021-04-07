@@ -46,6 +46,7 @@ export default {
     return {
       menuOpen: false,
       navLinks: [
+        { name: 'Life Fitness +', path: '/lifefitness-plus' },
         { name: 'Cardio', path: '/cardio' },
         { name: 'Strength', path: '/strength' },
         { name: 'Accessories', path: '/accessories' },
