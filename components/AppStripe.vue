@@ -6,12 +6,13 @@
       >
       <div class="mt-1">
         <input
-          v-model="stripePhone"
+          v-model="phone"
+          v-mask="'(###) ###-####'"
           type="text"
           name="phone"
           id="phone"
           class="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full text-sm border-gray-300 rounded-md"
-          placeholder="+1 (123) 123-1234"
+          placeholder="(123) 123-1234"
         />
       </div>
     </div>
@@ -57,6 +58,7 @@
 
 <script>
 import { Card, handleCardPayment } from 'vue-stripe-elements-plus'
+import { VueMaskDirective } from 'v-mask'
 
 import { mapState } from 'vuex'
 
@@ -67,6 +69,13 @@ export default {
     payDisabled() {
       return !this.complete || !this.stripeEmail || this.loading
     },
+    stripePhone() {
+      const numPhone = this.phone.replace(/\D/g, '')
+      return numPhone.length === 10 ? '+1' + numPhone : ''
+    },
+  },
+  directives: {
+    mask: VueMaskDirective,
   },
   mounted() {
     // create a PaymentIntent on Stripe with order information
@@ -95,7 +104,7 @@ export default {
         },
       },
       stripeEmail: '',
-      stripePhone: '',
+      phone: '',
       error: '',
       loading: false,
     }
