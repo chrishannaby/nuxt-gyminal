@@ -1,4 +1,7 @@
 User-agent: Algolia Crawler
-Disallow: /
+Disallow: /$
+Disallow: /cardio
+Disallow: /strength
+Disallow: /accessories
 Disallow: /cart
 Allow: /products
