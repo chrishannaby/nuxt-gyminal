@@ -1,3 +1,18 @@
 User-agent: Algolia Crawler
-Disallow: /*
-Allow: /*/*/*
+Disallow: /$
+Disallow: /cart$
+Disallow: /strength$
+Disallow: /strength/benches-and-racks$
+Allow: /strength/benches-and-racks/
+Disallow: /strength/home-gyms$
+Allow: /strength/home-gyms/
+Disallow: /cardio$
+Disallow: /cardio/treadmills$
+Allow: /cardio/treadmills/
+Disallow: /cardio/rowers$
+Allow: /cardio/rowers/
+Disallow: /cardio/exercise-bikes$
+Allow: /cardio/exercise-bikes/
+Disallow: /accessories$
+Disallow: /accessories/resistance-bands$
+Allow: /accessories/resistance-bands/
