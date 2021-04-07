@@ -7,14 +7,10 @@ cloudinary.config({
 });
 
 const createSitemapRoutes = async () => {
-  let routes = [];
   const { $content } = require('@nuxt/content')
-  if (products === null || products.length === 0)
-    products = await $content('products').fetch();
-  for (const product of products) {
-    routes.push(`products/${product.slug}`);
-  }
-  return routes;
+  const products = await $content('products')
+    .fetch()
+  return products.map(p => `products/${p.slug}`)
 }
 
 export default {
