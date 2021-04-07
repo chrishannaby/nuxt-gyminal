@@ -16,7 +16,7 @@
             />
           </nuxt-link>
           <div
-            class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-4 md:space-x-8"
+            class="hidden sm:-my-px sm:ml-6 lg:flex sm:space-x-4 md:space-x-8"
           >
             <nuxt-link
               v-for="link in navLinks"
@@ -57,7 +57,7 @@
                 {{ cartCount }}
               </div>
             </nuxt-link>
-            <div class="-mr-2 flex items-center sm:hidden">
+            <div class="-mr-2 flex items-center lg:hidden">
               <!-- Mobile menu button -->
               <button
                 type="button"
@@ -106,7 +106,7 @@
       </div>
     </div>
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div v-if="value" class="sm:hidden" id="mobile-menu">
+    <div v-if="value" class="lg:hidden" id="mobile-menu">
       <div class="pt-2 pb-3 space-y-1">
         <nuxt-link
           v-for="link in navLinks"
