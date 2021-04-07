@@ -6,6 +6,17 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
+const createSitemapRoutes = async () => {
+  let routes = [];
+  const { $content } = require('@nuxt/content')
+  if (products === null || products.length === 0)
+    products = await $content('products').fetch();
+  for (const product of products) {
+    routes.push(`products/${product.slug}`);
+  }
+  return routes;
+}
+
 export default {
   target: 'static',
   /*
@@ -39,9 +50,15 @@ export default {
    */
   modules: [
     '@nuxt/content',
+    '@nuxtjs/sitemap'
   ],
   content: {
     // Options
+  },
+  sitemap: {
+    hostname: 'https://lifefitness.netlify.app',
+    gzip: true,
+    routes: createSitemapRoutes
   },
   /*
    ** Build configuration
