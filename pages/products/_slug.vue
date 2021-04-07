@@ -61,6 +61,13 @@ export default {
   head() {
     return {
       title: `${this.product.name} | Life Fitness`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.product.name,
+        },
+      ],
     }
   },
 }
