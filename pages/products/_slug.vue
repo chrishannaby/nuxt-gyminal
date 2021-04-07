@@ -31,7 +31,7 @@
       </div>
     </div>
     <NuxtContent
-      class="mt-24 prose prose-sm sm:prose  mx-auto"
+      class="px-4 mt-24 prose prose-sm sm:prose mx-auto"
       :document="product"
     />
   </div>
