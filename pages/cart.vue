@@ -51,6 +51,7 @@ export default {
   head() {
     return {
       title: 'Cart | Life Fitness',
+      script: [{ src: 'https://js.stripe.com/v3/' }],
     }
   },
 }
