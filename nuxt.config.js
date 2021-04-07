@@ -76,8 +76,5 @@ export default {
   },
   tailwindcss: {
     jit: true
-  },
-  build: {
-    transpile: ['vue-instantsearch', 'instantsearch.js/es'],
   }
 }
