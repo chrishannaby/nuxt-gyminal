@@ -20,6 +20,7 @@ export const getters = {
     return state.cart.map(item => {
       return {
         id: item.id,
+        name: item.name,
         price: item.price,
         quantity: item.quantity
       };

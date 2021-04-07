@@ -18,25 +18,13 @@ const twilio = require('twilio')(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN);
 const sendgrid = require('@sendgrid/mail');
 sendgrid.setApiKey(SENDGRID_API_KEY)
 
-const msg = {
-  from: SENDGRID_EMAIL,
-  templateId: 'd-359a4929e63d43e3aad92a53231cb5e9',
-  dynamicTemplateData: {
-    orderNumber: 1231231,
-    items: [
-      { name: "Barbell", price: "16.00" },
-      { name: "Dumbell", price: "6.00" }
-    ],
-    total: "22.00"
-
-  }
-}
-
-async function sendEmail(customerEmail) {
+async function sendEmail(customerEmail, orderDetails) {
   try {
     await sendgrid.send({
-      ...msg,
-      to: customerEmail
+      from: SENDGRID_EMAIL,
+      templateId: 'd-359a4929e63d43e3aad92a53231cb5e9',
+      to: customerEmail,
+      dynamicTemplateData: orderDetails
     })
     console.log("email sent")
   }
@@ -45,12 +33,12 @@ async function sendEmail(customerEmail) {
   }
 }
 
-async function sendSMS(customerPhone) {
+async function sendSMS(customerPhone, total) {
   try {
     const response = await twilio.messages.create({
       from: TWILIO_NUMBER,
       to: customerPhone,
-      body: "🛒 Your Life Fitness order has been created!"
+      body: `🛒 Your Life Fitness order for $${total} has been created!`
     });
     console.log("SMS sent", response)
   }
@@ -82,13 +70,14 @@ exports.handler = async (event, context) => {
       const paymentIntent = stripeEvent.data.object;
       console.log('object', paymentIntent)
       const customerEmail = paymentIntent.receipt_email
+      const orderDetails = JSON.parse(paymentIntent.metadata.order)
       const tasks = []
-      if (customerEmail) {
-        tasks.push(sendEmail(customerEmail))
+      if (customerEmail && orderDetails && orderDetails.total) {
+        tasks.push(sendEmail(customerEmail, orderDetails))
       }
       const customerPhone = paymentIntent.shipping.phone
-      if (customerPhone) {
-        tasks.push(sendSMS(customerPhone))
+      if (customerPhone && orderDetails && orderDetails.total) {
+        tasks.push(sendSMS(customerPhone, orderDetails.total))
       }
       await Promise.all(tasks)
       break;
