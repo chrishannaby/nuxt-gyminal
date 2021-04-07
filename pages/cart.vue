@@ -51,7 +51,6 @@ export default {
   head() {
     return {
       title: 'Cart | Life Fitness',
-      meta: [{ name: 'Algolia Crawler', content: 'noindex' }],
     }
   },
 }

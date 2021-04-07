@@ -52,7 +52,6 @@ export default {
       script: [
         { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' },
       ],
-      meta: [{ name: 'Algolia Crawler', content: 'noindex' }],
     }
   },
 }

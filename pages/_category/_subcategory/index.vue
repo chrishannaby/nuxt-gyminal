@@ -130,7 +130,6 @@ export default {
   head() {
     return {
       title: `${this.subcategory.name} | Life Fitness`,
-      meta: [{ name: 'Algolia Crawler', content: 'noindex' }],
     }
   },
   computed: {
