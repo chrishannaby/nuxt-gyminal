@@ -13,7 +13,7 @@
         class="z-10 row-start-1 col-start-1 w-full flex flex-col items-center space-y-8"
       >
         <h1 class="text-4xl font-black text-white text-center">
-          Life Fitness on Demand
+          Life Fitness on Demand. Wow!
         </h1>
         <button
           class="bg-white uppercase tracking-wide text-xs text-black font-black py-4 px-16"
