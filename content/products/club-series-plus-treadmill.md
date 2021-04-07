@@ -3,7 +3,7 @@ name: Club Series + Treadmill
 id: 1ccf4972-8319-445f-907a-ec5345d5fa31
 subcategory: treadmills
 price: 6199
-image: https://res.cloudinary.com/chrishannaby/image/upload/v1617808068/lifefitness/ClubSeriesPlus-Side-1000x1000-C_1_qh2z8s.jpg
+image: https://res.cloudinary.com/chrishannaby/image/upload/v1617809092/lifefitness/Club_Series_Plus_ST_zx1gdk.jpg
 featured: true
 rating: 4
 ---
