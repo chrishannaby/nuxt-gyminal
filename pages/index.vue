@@ -14,7 +14,7 @@
       >
         <div>
           <h1 class="text-6xl font-black text-white text-center">
-            Life Fitness +
+            Life Fitness+
           </h1>
           <h2 class="text-2xl font-medium text-white text-center">
             Bring the gym home
