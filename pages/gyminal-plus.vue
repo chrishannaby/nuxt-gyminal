@@ -4,7 +4,7 @@
   >
     <div class="flex flex-col px-12 lg:items-end">
       <h1 class="mt-16 lg:mt-0 text-3xl xs:text-4xl text-gray-800 font-bold">
-        Gyminal +
+        Gyminal+
       </h1>
       <p
         class="mt-2 pt-4 border-t-2 border-lf-red text-black font-light text-2xl"
