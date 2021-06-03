@@ -10,7 +10,7 @@ rating: 4.8
 
 ## FOLDABLE, COMPACT AND IDEAL FOR USE IN ANY SPACE
 
-The F3 folding treadmill doesn’t sacrifice quality. It is outfitted with everything that makes Life Fitness treadmills the No. 1 choice worldwide. High-quality components ensure that your home fitness equipment endures years of heavy use. The F3 compact folding treadmill can be easily rolled to a convenient storage area.
+The F3 folding treadmill doesn’t sacrifice quality. It is outfitted with everything that makes our treadmills the No. 1 choice worldwide. High-quality components ensure that your home fitness equipment endures years of heavy use. The F3 compact folding treadmill can be easily rolled to a convenient storage area.
 
 ### KEY FEATURES
 

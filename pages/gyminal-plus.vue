@@ -4,7 +4,7 @@
   >
     <div class="flex flex-col px-12 lg:items-end">
       <h1 class="mt-16 lg:mt-0 text-3xl xs:text-4xl text-gray-800 font-bold">
-        Life Fitness +
+        Gyminal +
       </h1>
       <p
         class="mt-2 pt-4 border-t-2 border-lf-red text-black font-light text-2xl"
@@ -13,8 +13,8 @@
       </p>
       <p class="my-6 space-y-3 text-sm lg:text-right">
         Immerse exercisers in digital class environments, whenever and however
-        they want. Life Fitness™ On Demand classes add a captivating new feature
-        to our already entertainment-rich, connected Discover SE3 HD consoles.
+        they want. Gyminal™ On Demand classes add a captivating new feature to
+        our already entertainment-rich, connected Discover SE3 HD consoles.
       </p>
       <button
         class="mt-4  bg-lf-red hover:bg-red-700 text-white font-medium py-2 px-6"
@@ -35,5 +35,5 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>

@@ -103,21 +103,21 @@
 <script>
 export default {
   async asyncData({ $content, params }) {
-    let category, subcategory, products
+    let category, subcategory, products;
     try {
-      subcategory = await $content('subcategories', params.subcategory).fetch()
-      category = await $content('categories', subcategory.category).fetch()
-      products = await $content('products')
+      subcategory = await $content("subcategories", params.subcategory).fetch();
+      category = await $content("categories", subcategory.category).fetch();
+      products = await $content("products")
         .where({ subcategory: params.subcategory })
-        .fetch()
+        .fetch();
     } catch (err) {}
-    const prices = products.map((p) => p.price)
-    const minPrice = Math.min(...prices)
-    const maxPrice = Math.max(...prices)
+    const prices = products.map((p) => p.price);
+    const minPrice = Math.min(...prices);
+    const maxPrice = Math.max(...prices);
     const trail = [
       { name: category.name, path: `/${category.slug}` },
       { name: subcategory.name, path: `/${category.slug}/${subcategory.slug}` },
-    ]
+    ];
     return {
       products,
       category,
@@ -125,24 +125,24 @@ export default {
       trail,
       minPrice,
       maxPrice,
-    }
+    };
   },
   head() {
     return {
-      title: `${this.subcategory.name} | Life Fitness`,
-    }
+      title: `${this.subcategory.name} | Gyminal`,
+    };
   },
   computed: {
     filteredProducts() {
       return this.products.filter((p) => {
         const aboveRating = this.rating
           ? Math.round(p.rating) >= this.rating
-          : true
-        return p.price <= this.pricerange && aboveRating
-      })
+          : true;
+        return p.price <= this.pricerange && aboveRating;
+      });
     },
     showFilters() {
-      return this.windowWidth > 1024 || this.filtersOpen
+      return this.windowWidth > 1024 || this.filtersOpen;
     },
   },
   data() {
@@ -152,17 +152,17 @@ export default {
       ratings: [5, 4, 3, 2, 1, 0],
       filtersOpen: false,
       windowWidth: null,
-    }
+    };
   },
   mounted() {
     if (process.client) {
-      this.windowWidth = window.innerWidth
+      this.windowWidth = window.innerWidth;
       window.onresize = () => {
-        this.windowWidth = window.innerWidth
-      }
+        this.windowWidth = window.innerWidth;
+      };
     }
   },
-}
+};
 </script>
 
 <style scoped>

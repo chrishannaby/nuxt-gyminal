@@ -14,7 +14,7 @@
       >
         <div>
           <h1 class="text-6xl font-black text-white text-center">
-            Life Fitness +
+            Gyminal +
           </h1>
           <h2 class="text-2xl font-medium text-white text-center">
             Bring the gym home
@@ -43,19 +43,19 @@
 <script>
 export default {
   async asyncData({ $content, params, error }) {
-    const categories = await $content('categories', params.category).fetch()
-    const featuredProducts = await $content('products')
+    const categories = await $content("categories", params.category).fetch();
+    const featuredProducts = await $content("products")
       .where({ featured: true })
       .limit(4)
-      .fetch()
-    console.log(featuredProducts)
+      .fetch();
+    console.log(featuredProducts);
     return {
       categories,
       featuredProducts,
-    }
+    };
   },
   head() {
-    return {}
+    return {};
   },
-}
+};
 </script>

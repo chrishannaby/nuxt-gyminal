@@ -31,29 +31,29 @@
 <script>
 export default {
   async asyncData({ $content, params, error }) {
-    let subcategories, category
+    let subcategories, category;
     try {
-      category = await $content('categories', params.category).fetch()
-      subcategories = await $content('subcategories')
+      category = await $content("categories", params.category).fetch();
+      subcategories = await $content("subcategories")
         .where({ category: params.category })
-        .fetch()
+        .fetch();
     } catch (err) {
-      error({ statusCode: 404, message: 'Page not found' })
+      error({ statusCode: 404, message: "Page not found" });
     }
-    const trail = [{ name: category.name, path: `/${category.slug}` }]
+    const trail = [{ name: category.name, path: `/${category.slug}` }];
 
     return {
       subcategories,
       category,
       trail,
-    }
+    };
   },
   head() {
     return {
-      title: `${this.category.name} | Life Fitness`,
-    }
+      title: `${this.category.name} | Gyminal`,
+    };
   },
-}
+};
 </script>
 
 <style></style>

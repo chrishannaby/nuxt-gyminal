@@ -23,9 +23,9 @@
             class="text-base md:text-xl uppercase leading-tight font-extrabold tracking-wider"
           >
             We look for world-class suppliers to support the successful delivery
-            of the wimbledon championships. Life fitness was able to provide us
-            with quality fitness equipment and a seamless solution, and the
-            support we've received has been fantastic.
+            of the wimbledon championships. Gyminal was able to provide us with
+            quality fitness equipment and a seamless solution, and the support
+            we've received has been fantastic.
           </p>
           <p class="mt-4 text-sm">
             Andrew Ambrose, GM - All England Lawn Tennis Club
@@ -37,5 +37,5 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>

@@ -10,7 +10,7 @@ rating: 4
 
 ## BRING THE CLUB EXPERIENCE HOME
 
-The Life Fitness Club Series is rooted in more than 20 years of reliability, innovation and exerciser insight from gyms and health clubs across the world. Our next-generation Club Series+ is now stronger and sleeker than ever - but retains the quality and durability you trust.
+The Club Series is rooted in more than 20 years of reliability, innovation and exerciser insight from gyms and health clubs across the world. Our next-generation Club Series+ is now stronger and sleeker than ever - but retains the quality and durability you trust.
 
 ![](https://res.cloudinary.com/chrishannaby/image/upload/v1617807897/lifefitness/BringClubHome-570x570_wn1k8w.jpg)
 

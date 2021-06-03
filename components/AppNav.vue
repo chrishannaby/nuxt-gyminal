@@ -7,12 +7,12 @@
             <img
               class="hidden xs:block w-36 h-auto"
               src="/logo.png"
-              alt="Life Fitness"
+              alt="Gyminal"
             />
             <img
               class="block xs:hidden w-10 h-auto"
               src="/logo_small.png"
-              alt="Life Fitness"
+              alt="Gyminal"
             />
           </nuxt-link>
           <div
@@ -122,7 +122,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 
 export default {
   props: {
@@ -130,7 +130,7 @@ export default {
     navLinks: Array,
   },
   computed: {
-    ...mapGetters(['cartCount']),
+    ...mapGetters(["cartCount"]),
   },
-}
+};
 </script>

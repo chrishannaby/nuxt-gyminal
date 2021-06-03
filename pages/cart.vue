@@ -37,22 +37,22 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState } from "vuex";
 
 export default {
   computed: {
-    ...mapState(['cartUIStatus']),
+    ...mapState(["cartUIStatus"]),
   },
   methods: {
     startCheckout() {
-      this.$store.commit('startCheckout')
+      this.$store.commit("startCheckout");
     },
   },
   head() {
     return {
-      title: 'Cart | Life Fitness',
-      script: [{ src: 'https://js.stripe.com/v3/' }],
-    }
+      title: "Cart | Gyminal",
+      script: [{ src: "https://js.stripe.com/v3/" }],
+    };
   },
-}
+};
 </script>

@@ -40,35 +40,35 @@
 <script>
 export default {
   async asyncData({ $content, params }) {
-    let product
+    let product;
     try {
-      product = await $content('products', params.slug).fetch()
+      product = await $content("products", params.slug).fetch();
     } catch (err) {}
     return {
       product,
-    }
+    };
   },
   methods: {
     addToCart() {
       const item = {
         ...this.product,
         quantity: 1,
-      }
-      console.log(item)
-      this.$store.commit('addToCart', { ...item })
+      };
+      console.log(item);
+      this.$store.commit("addToCart", { ...item });
     },
   },
   head() {
     return {
-      title: `${this.product.name} | Life Fitness`,
+      title: `${this.product.name} | Gyminal`,
       meta: [
         {
-          hid: 'description',
-          name: 'description',
+          hid: "description",
+          name: "description",
           content: this.product.name,
         },
       ],
-    }
+    };
   },
-}
+};
 </script>

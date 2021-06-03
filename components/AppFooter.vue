@@ -111,7 +111,7 @@
           </ul>
         </div>
         <div class="space-y-8 xl:col-span-1">
-          <img class="h-10" src="/logo.png" alt="Life Fitness" />
+          <img class="h-10" src="/logo.png" alt="Gynimal" />
           <div class="flex space-x-6">
             <a href="#" class="text-gray-400 hover:text-gray-500">
               <span class="sr-only">Facebook</span>
@@ -197,8 +197,8 @@
       </div>
       <div class="mt-12 border-t border-gray-200 pt-8">
         <p class="text-base text-gray-400 xl:text-center">
-          &copy; 2021 Life Fitness. All rights reserved. Life Fitness is a
-          registered trademark.
+          &copy; 2021 Gyminal. All rights reserved. Gyminal is a registered
+          trademark.
         </p>
       </div>
     </div>
@@ -206,5 +206,5 @@
 </template>
 
 <script>
-export default {}
+export default {};
 </script>
