@@ -46,7 +46,6 @@ export default {
     return {
       menuOpen: false,
       navLinks: [
-        { name: "Gyminal +", path: "/gyminal-plus" },
         { name: "Cardio", path: "/cardio" },
         { name: "Strength", path: "/strength" },
         { name: "Accessories", path: "/accessories" },
