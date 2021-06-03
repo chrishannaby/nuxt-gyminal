@@ -20,7 +20,7 @@
             Bring the gym home
           </h2>
         </div>
-        <nuxt-link to="/lifefitness-plus">
+        <nuxt-link to="/gyminal-plus">
           <button
             class="bg-lf-red uppercase tracking-wide text-xs text-white font-extrabold py-4 px-16"
           >
