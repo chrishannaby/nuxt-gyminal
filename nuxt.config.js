@@ -14,6 +14,16 @@ const createSitemapRoutes = async () => {
 
 export default {
   target: "static",
+  build: {
+    filenames: {
+      app: ({ isModern }) => `[name]${isModern ? ".modern" : ""}.js`,
+      chunk: ({ isModern }) => `[name]${isModern ? ".modern" : ""}.js`,
+      css: () => "[name].css",
+      img: () => "[path][name].[ext]",
+      font: () => "[path][name].[ext]",
+      video: () => "[path][name].[ext]",
+    },
+  },
   /*
    ** Headers of the page
    */
