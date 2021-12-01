@@ -23,6 +23,17 @@ export default {
       font: () => "[path][name].[ext]",
       video: () => "[path][name].[ext]",
     },
+    extend(config) {
+      // Remove hash from url-loader
+      config.module.rules
+        .filter(function(module) {
+          return module.loader === "url-loader";
+        })
+        .forEach((module) => {
+          const { options } = module;
+          options.name = options.name.replace(".[hash:7]", "");
+        });
+    },
   },
   /*
    ** Headers of the page
